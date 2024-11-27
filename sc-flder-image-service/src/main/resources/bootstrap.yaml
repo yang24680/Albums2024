@@ -1,0 +1,19 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: sc-fllder-image-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/smart_albums
+    username: root
+    password: 123456
+
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+      discovery:
+        server-addr: 127.0.0.1:8848
+        service: sc-fllder-image-service
