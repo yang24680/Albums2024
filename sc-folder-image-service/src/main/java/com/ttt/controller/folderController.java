@@ -1,14 +1,14 @@
 package com.ttt.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.ttt.http.Result;
 import com.ttt.model.file_folder;
 import com.ttt.service.folderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Map;
@@ -20,6 +20,17 @@ public class folderController {
 
     @Autowired
     private  ObjectMapper objectMapper;
+
+    @RequestMapping("init")
+    @SentinelResource(value = "initSentinelResource" ,blockHandler = "initBlockHandler")
+    public Integer init(){
+        return FS.init();
+    }
+    public String initBlockHandler(BlockException e){
+        return "init 服务不可用";
+    }
+
+
 
     @RequestMapping("/createFolder")
     public Result create_folder(@RequestBody Map<String, Collection<file_folder>> mp)

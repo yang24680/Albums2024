@@ -61,6 +61,9 @@ spring:
             enable: true
             required: true
 
+
+  main:
+    allow-bean-definition-overriding: true
 feign:
   client:
     config:
@@ -70,11 +73,13 @@ feign:
   sentinel:
     enabled: true  # 激活Sentinel对OpenFeign的支持
 
-logging:
-  level:
-    root: info
-  pattern:
-    console: "%d{${LOG_DATEFORMAT_PATTERN:HH:mm:ss.SSS}} %m%n"
+
+
+#logging:
+#  level:
+#    root: info
+#  pattern:
+#    console: "%d{${LOG_DATEFORMAT_PATTERN:HH:mm:ss.SSS}} %m%n"
 
 mybatis-plus:
   global-config:

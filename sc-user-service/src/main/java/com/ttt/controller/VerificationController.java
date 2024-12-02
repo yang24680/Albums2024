@@ -1,7 +1,6 @@
 package com.ttt.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.ttt.http.Result;
 import com.ttt.service.VerificationService;
 import org.springframework.beans.factory.annotation.Autowired;

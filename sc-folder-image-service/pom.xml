@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>sc-flder-image-service</artifactId>
+    <artifactId>sc-folder-image-service</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -52,19 +52,27 @@
         <!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
         <!--            <version>${spring-boot.version}</version>-->
         <!--        </dependency>-->
+
+
+
         <!-- bootstrap.yaml 启动器 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
             <version>${spring-cloud-starter-bootstrap.version}</version>
         </dependency>
+
+
         <!--公共微服务项目依赖-->
         <dependency>
             <groupId>com.ttt</groupId>
             <artifactId>sc-smart-albums-common-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+
         <!--引入nacos配置依赖-->
+
         <!--nacos-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -76,6 +84,16 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>${spring.cloud.alibaba.version}</version>
         </dependency>
+<!--        sentinel + OpenFeign-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
 <!--对外接口暴露-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

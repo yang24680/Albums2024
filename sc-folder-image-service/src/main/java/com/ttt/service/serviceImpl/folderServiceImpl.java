@@ -1,12 +1,12 @@
-package com.ttt.service;
+package com.ttt.service.serviceImpl;
 
-
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import com.ttt.mapper.folderMapper;
 import com.ttt.model.file_folder;
 import com.ttt.model.image;
+import com.ttt.service.folderService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,9 +14,17 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * ClassName:{folderServiceImpl}
+ * Package:com.ttt.service.serviceImpl
+ * Description:
+ *
+ * @Author: yang
+ * @Create: 2024/12/2  20:30
+ * @Version: 1.0
+ */
 @Service
-public class folderService {
-
+public class folderServiceImpl extends ServiceImpl<folderMapper,file_folder> implements folderService {
     @Autowired
     folderMapper FM;
     @Autowired
@@ -164,5 +172,4 @@ public class folderService {
         dst.setData( objectMapper.writeValueAsString(temp) );
         updateFolder(dst);
     }
-
 }

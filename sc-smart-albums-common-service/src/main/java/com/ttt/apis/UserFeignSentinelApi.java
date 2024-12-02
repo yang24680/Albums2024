@@ -6,6 +6,7 @@ import com.ttt.model.UserDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
@@ -19,6 +20,7 @@ import java.util.Map;
  * @Version: 1.0
  */
 @FeignClient(value = "sc-user-service",fallback = UserFeignSentinelApiFallback.class)
+@ResponseBody
 public interface UserFeignSentinelApi {
     //发送验证码
     @PostMapping("/send")

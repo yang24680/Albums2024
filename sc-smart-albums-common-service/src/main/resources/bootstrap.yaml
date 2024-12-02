@@ -3,8 +3,16 @@ server:
 spring:
   application:
     name: sc-smart-albums-common-service
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/Smart_Albums
-    username: root
-    password: 123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        service: sc-smart-albums-common-service
+feign:
+  client:
+    config:
+      default:
+        readTimeout: 1000
+        connectTimeout: 1000
+  sentinel:
+    enabled: true  # 激活Sentinel对OpenFeign的支持

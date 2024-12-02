@@ -1,11 +1,14 @@
 package com.ttt.service.serviceImpl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ttt.apis.folderImageFeignSentinelApi;
 import com.ttt.http.Result;
 import com.ttt.mapper.UserMapper;
 import com.ttt.model.User;
 import com.ttt.model.UserDTO;
 import com.ttt.service.UserService;
+
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -23,8 +26,10 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl  extends ServiceImpl<UserMapper,User> implements UserService {
     @Autowired
     private UserMapper userMapper;
-    @Autowired
-    private com.ttt.service.folderService folderService;
+//    @Autowired
+//    private com.ttt.service.folderService folderService;
+    @Resource
+    private folderImageFeignSentinelApi folderService;
 
 
     @Autowired

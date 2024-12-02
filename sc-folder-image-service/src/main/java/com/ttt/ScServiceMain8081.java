@@ -4,6 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * ClassName:{ScServiceMain8081}
@@ -16,7 +17,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.ttt.mapper")
+@MapperScan("com.ttt1.mapper")
+@EnableFeignClients
 public class ScServiceMain8081 {
     public static void main(String[] args) {
         SpringApplication.run(ScServiceMain8081.class,args);
