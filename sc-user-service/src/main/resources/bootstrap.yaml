@@ -1,0 +1,85 @@
+server:
+  port: 8820
+spring:
+  application:
+    name: sc-user-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/smart_albums
+    username: root
+    password: 123456
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      lettuce:
+        pool:
+          enabled: true
+          max-active: 20
+          max-idle: 8
+          max-wait: -1
+          min-idle: 0
+  cloud:
+    sentinel:  # sentinel 工作台配置
+      transport:
+        port: 8719
+        dashboard: localhost:8080
+      datasource: #sentinel 持久化配置
+        ds1:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            dataId: sc-user-service
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+      discovery:
+        server-addr: 127.0.0.1:8848
+        service: sc-user-service
+  mail:
+    #smtp服务主机名，下边为qq邮箱
+    host: smtp.qq.com
+    #服务协议
+    protocol: smtp
+    #编辑码
+    default-encoding: utf-8
+    #发送邮件的账户
+    username: 1535698057@qq.com
+    #授权码
+    password: zfygxjwwplysjfgc
+    #昵称
+
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          auth:true:
+          starttls:
+            enable: true
+            required: true
+
+feign:
+  client:
+    config:
+      default:
+        readTimeout: 1000
+        connectTimeout: 1000
+  sentinel:
+    enabled: true  # 激活Sentinel对OpenFeign的支持
+
+logging:
+  level:
+    root: info
+  pattern:
+    console: "%d{${LOG_DATEFORMAT_PATTERN:HH:mm:ss.SSS}} %m%n"
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
