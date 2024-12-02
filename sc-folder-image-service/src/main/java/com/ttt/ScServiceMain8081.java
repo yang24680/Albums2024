@@ -17,7 +17,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.ttt1.mapper")
+@MapperScan("com.ttt.mapper")
 @EnableFeignClients
 public class ScServiceMain8081 {
     public static void main(String[] args) {

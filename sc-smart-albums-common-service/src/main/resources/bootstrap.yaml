@@ -8,6 +8,9 @@ spring:
       discovery:
         server-addr: localhost:8848
         service: sc-smart-albums-common-service
+        username: nacos
+        password: nacos
+
 feign:
   client:
     config:
