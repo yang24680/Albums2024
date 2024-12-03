@@ -1,7 +1,8 @@
 server:
   port: 8082
-
 spring:
+  application:
+    name: sc-folder-service
   cloud:
     nacos:
       discovery:
@@ -12,6 +13,20 @@ spring:
 
     sentinel:
       enabled: true
+
+seata:
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      application: sc-folder-service
+      namespace: ""
+      group: SEATA_GROUP
+  tx-service-group: default_tx_group
+  service:
+    vgroup-mapping:
+      default_tx_group: default
+
 
 mybatis-plus:
   global-config:

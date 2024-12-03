@@ -17,7 +17,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.ttt.apis")
 @MapperScan("com.image.mapper")
 public class ScImageMain8083 {
     public static void main(String[] args) {

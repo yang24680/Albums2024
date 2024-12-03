@@ -6,6 +6,7 @@ import com.alibaba.nacos.api.model.v2.Result;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.folder.service.folderService;
 import com.ttt.model.file_folder;
+import com.ttt.model.image;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,13 +23,38 @@ public class folderController {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @RequestMapping("init")
+    @RequestMapping("/init")
     @SentinelResource(value = "initSentinelResource" ,blockHandler = "initBlockHandler")
     public Integer init(){
         return FS.init();
     }
     public String initBlockHandler(BlockException e){
         return "init 服务不可用";
+    }
+
+
+    /*
+    * getOne  Feign Api接口
+    * */
+    @RequestMapping("/getOne")
+    public file_folder getOne(Integer id){
+        return FS.getOne(id);
+    }
+
+    /*
+     * silver_bullet_I  Feign Api接口
+     * */
+    @RequestMapping("/silver_bullet_I")
+    public void silver_bullet_I(file_folder preF, image temp){
+        FS.silver_bullet_I(preF,temp);
+    }
+
+    /*
+     * silver_bullet_D  Feign Api接口
+     * */
+    @RequestMapping("/silver_bullet_D")
+    public void silver_bullet_D(file_folder preF, Integer id, int i){
+        FS.silver_bullet_D(preF,id,i);
     }
 
 

@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * ClassName:{ScCommonApplicationMain8091}
@@ -17,8 +18,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class ScCommonApplicationMain8091 {
+public class ScCommonApplicationMain8092 {
     public static void main(String[] args) {
-            SpringApplication.run(ScCommonApplicationMain8091.class,args);
+            SpringApplication.run(ScCommonApplicationMain8092.class,args);
     }
 }

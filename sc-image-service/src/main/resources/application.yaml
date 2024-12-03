@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: sc-image-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/smart_albums
+    username: root
+    password: 123456

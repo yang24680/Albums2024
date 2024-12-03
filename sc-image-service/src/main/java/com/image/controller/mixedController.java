@@ -27,10 +27,12 @@ public class mixedController {
 
     @Autowired
     imageService IS;
+
+
 //    @Autowired
 //    folderService FS;
 
-    @Resource
+    @Autowired
     private folderFeignSentinelApi FS;
     @Autowired
     private  ObjectMapper objectMapper;

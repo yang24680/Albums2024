@@ -1,7 +1,8 @@
 server:
   port: 8083
-
 spring:
+  application:
+    name: sc-image-service
   cloud:
     nacos:
       discovery:
@@ -9,9 +10,14 @@ spring:
         service: sc-image-service
         username: nacos
         password: nacos
-
-    sentinel:
-      enabled: true
+feign:
+  client:
+    config:
+      default:
+        readTimeout: 1000
+        connectTimeout: 1000
+  sentinel:
+    enabled: true  # 激活Sentinel对OpenFeign的支持
 
 mybatis-plus:
   global-config:
