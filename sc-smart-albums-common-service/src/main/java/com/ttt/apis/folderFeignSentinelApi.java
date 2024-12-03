@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Create: 2024/12/2  20:49
  * @Version: 1.0
  */
-@FeignClient(value = "sc-folder-image-service",fallback = folderImageFeignSentinelApiFallback.class)
-public interface folderImageFeignSentinelApi {
+@FeignClient(value = "sc-folder-service",fallback = folderFeignSentinelApiFallback.class)
+public interface folderFeignSentinelApi {
     @RequestMapping("init")
     Integer init();
 }

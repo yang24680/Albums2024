@@ -1,7 +1,7 @@
 package com.ttt.service.serviceImpl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ttt.apis.folderImageFeignSentinelApi;
+import com.ttt.apis.folderFeignSentinelApi;
 import com.ttt.http.Result;
 import com.ttt.mapper.UserMapper;
 import com.ttt.model.User;
@@ -29,7 +29,7 @@ public class UserServiceImpl  extends ServiceImpl<UserMapper,User> implements Us
 //    @Autowired
 //    private com.ttt.service.folderService folderService;
     @Resource
-    private folderImageFeignSentinelApi folderService;
+    private folderFeignSentinelApi folderService;
 
 
     @Autowired

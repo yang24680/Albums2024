@@ -1,0 +1,22 @@
+server:
+  port: 8082
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        service: sc-folder-service
+        username: nacos
+        password: nacos
+
+    sentinel:
+      enabled: true
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

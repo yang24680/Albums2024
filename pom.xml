@@ -17,8 +17,10 @@
     <modules>
         <module>sc-smart-albums-common-service</module>
         <module>sc-user-service</module>
-        <module>sc-folder-image-service</module>
+<!--        <module>sc-folder-image-service</module>-->
         <module>sc-gateway</module>
+        <module>sc-folder-service</module>
+        <module>sc-image-service</module>
     </modules>
 
     <properties>

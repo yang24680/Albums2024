@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class folderImageFeignSentinelApiFallback implements folderImageFeignSentinelApi {
+public class folderFeignSentinelApiFallback implements folderFeignSentinelApi {
     @Override
     public Integer init() {
         return 0;
