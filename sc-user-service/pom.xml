@@ -119,12 +119,12 @@
         </dependency>
 
 
-<!--        seata-->
-        <!--alibaba-seata-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
-        </dependency>
+<!--&lt;!&ndash;        seata&ndash;&gt;-->
+<!--        &lt;!&ndash;alibaba-seata&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

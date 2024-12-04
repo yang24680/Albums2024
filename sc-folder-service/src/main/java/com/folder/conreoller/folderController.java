@@ -5,6 +5,8 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.nacos.api.model.v2.Result;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.folder.service.folderService;
+import com.ttt.model.SilverBulletDRequest;
+import com.ttt.model.SilverBulletIRequest;
 import com.ttt.model.file_folder;
 import com.ttt.model.image;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,16 +47,17 @@ public class folderController {
      * silver_bullet_I  Feign Api接口
      * */
     @RequestMapping("/silver_bullet_I")
-    public void silver_bullet_I(file_folder preF, image temp){
-        FS.silver_bullet_I(preF,temp);
+    public void silver_bullet_I(@RequestBody SilverBulletIRequest request){
+//        FS.silver_bullet_I(preF,temp);
+        FS.silver_bullet_I(request.getPreF(),request.getObj());
     }
 
     /*
      * silver_bullet_D  Feign Api接口
      * */
     @RequestMapping("/silver_bullet_D")
-    public void silver_bullet_D(file_folder preF, Integer id, int i){
-        FS.silver_bullet_D(preF,id,i);
+    public void silver_bullet_D(@RequestBody SilverBulletDRequest request){
+        FS.silver_bullet_D(request.getPreF(),request.getId(),request.getType());
     }
 
 

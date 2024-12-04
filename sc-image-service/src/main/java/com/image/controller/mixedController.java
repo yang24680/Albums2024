@@ -2,9 +2,11 @@ package com.image.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.image.apis.folderFeignSentinelApi;
 import com.image.service.imageService;
-import com.ttt.apis.folderFeignSentinelApi;
 import com.ttt.http.Result;
+import com.ttt.model.SilverBulletDRequest;
+import com.ttt.model.SilverBulletIRequest;
 import com.ttt.model.file_folder;
 import com.ttt.model.image;
 import jakarta.annotation.Resource;
@@ -32,8 +34,9 @@ public class mixedController {
 //    @Autowired
 //    folderService FS;
 
-    @Autowired
+    @Resource
     private folderFeignSentinelApi FS;
+
     @Autowired
     private  ObjectMapper objectMapper;
 
@@ -135,7 +138,12 @@ public class mixedController {
             images.add( temp );
 
             file_folder pre_f = FS.getOne(value.getPreDirId());
-            FS.silver_bullet_I(pre_f, temp);
+
+            SilverBulletIRequest silverBulletIRequest = new SilverBulletIRequest();
+            silverBulletIRequest.setPreF(pre_f);
+            silverBulletIRequest.setObj(temp);
+
+            FS.silver_bullet_I(silverBulletIRequest);
         });
 
         System.out.println( objectMapper.writeValueAsString(Result.success(images)) );
@@ -153,8 +161,22 @@ public class mixedController {
             file_folder pre_f =  FS.getOne( v.getPreDirId() );
             image img_back = IS.getOne(v.getId());
             img_back.setPrefix(v.getPrefix());
-            FS.silver_bullet_D(pre_f, v.getId(), 0);
-            FS.silver_bullet_I(pre_f, img_back);
+
+//            整合openfeign 使用对象  request 请求
+            SilverBulletDRequest request = new SilverBulletDRequest();
+            request.setPreF(pre_f);
+            request.setId(v.getId());
+            request.setType(0);
+
+
+            FS.silver_bullet_D(request);
+
+            SilverBulletIRequest silverBulletIRequest = new SilverBulletIRequest();
+            silverBulletIRequest.setPreF(pre_f);
+            silverBulletIRequest.setObj(img_back);
+
+            FS.silver_bullet_I(silverBulletIRequest);
+//            FS.silver_bullet_I(pre_f, img_back);
         });
  
         return Result.success();
@@ -173,7 +195,15 @@ public class mixedController {
             System.out.println(id);
             IS.deleteImage(id);
             file_folder pre_f =  FS.getOne( e.getPreDirId() );
-            FS.silver_bullet_D(pre_f, id, 0);
+
+//            整合openfeign 使用对象  request 请求
+
+            SilverBulletDRequest request = new SilverBulletDRequest();
+            request.setPreF(pre_f);
+            request.setId(id);
+            request.setType(0);
+
+            FS.silver_bullet_D(request);
 
 
 //            try {
